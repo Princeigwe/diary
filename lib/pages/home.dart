@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:diary/pages/edit_entry.dart';
 import 'package:diary/classes/database.dart';
 
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
           background: Container(
             color: Colors.red,
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 16.0),
+            padding: EdgeInsets.only(left: 20.0),
             child: Icon(
               Icons.delete,
               color: Colors.white,
@@ -75,7 +74,7 @@ class _HomeState extends State<Home> {
           secondaryBackground: Container(
             color: Colors.red,
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 16.0),
+            padding: EdgeInsets.only(left: 20.0),
             child: Icon(
               Icons.delete,
               color: Colors.white,
@@ -130,16 +129,26 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       // futurebuilder processes and retrieve data without blocking the ui
+      appBar: AppBar(
+        title: Text('Diary'),
+      ),
       body: FutureBuilder(
-          initialData: [],
-          future: _loadJournals(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            return !snapshot.hasData
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : _buildListViewSeparated(snapshot);
-          }),
+        initialData: [],
+        future: _loadJournals(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return _buildListViewSeparated(snapshot);
+          } else {
+            return Center(
+              child: SizedBox(
+                height: 45.0, 
+                width: 45.0,
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+      ),
 
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
