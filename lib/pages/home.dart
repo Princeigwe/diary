@@ -83,13 +83,15 @@ class _HomeState extends State<Home> {
           child: ListTile(
             leading: Column(
               children: [
-                Text(
-                  DateFormat.d()
-                      .format(DateTime.parse(snapshot.data[index].date)),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 32.0,
-                    color: Colors.blue,
+                Expanded(
+                  child: Text(
+                    DateFormat.d()
+                        .format(DateTime.parse(snapshot.data[index].date)),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32.0,
+                      color: Colors.blue,
+                    ),
                   ),
                 ),
                 Text(

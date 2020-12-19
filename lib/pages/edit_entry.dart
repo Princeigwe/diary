@@ -195,11 +195,7 @@ class _EditEntryState extends State<EditEntry> {
                   )
                 ],
               ),
-              CircularProgressIndicator(
-                      backgroundColor: Colors.blue,
-                      valueColor: new AlwaysStoppedAnimation(Colors.redAccent),
-                      strokeWidth: 10,
-                    ),
+              
             ],
           ),
         ),
