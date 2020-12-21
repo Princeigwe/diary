@@ -193,6 +193,7 @@ class _EditEntryState extends State<EditEntry> {
                       Navigator.pop(context, _journalEdit);
                     },
                   )
+                  
                 ],
               ),
               

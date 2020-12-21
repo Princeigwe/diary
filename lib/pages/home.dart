@@ -73,8 +73,8 @@ class _HomeState extends State<Home> {
           ),
           secondaryBackground: Container(
             color: Colors.red,
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 20.0),
+            alignment: Alignment.centerRight,
+            padding: EdgeInsets.only(right: 16.0),
             child: Icon(
               Icons.delete,
               color: Colors.white,
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 32.0,
-                      color: Colors.blue,
+                      color: Colors.teal,
                     ),
                   ),
                 ),
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
           } else {
             return Center(
               child: SizedBox(
-                height: 45.0, 
+                height: 45.0,
                 width: 45.0,
                 child: CircularProgressIndicator(),
               ),
